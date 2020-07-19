@@ -1,5 +1,6 @@
 /**
  * Created by jug on 1/22/18.
+ * A: Wrong data: kroger turnip 0.45 -387128732
  */
 public class DebugExercise3 {
     public static int countTurnips(In in) {
