@@ -134,7 +134,5 @@ public class ArrayRingBuffer<T> implements BoundedQueue<T> {
         return true;
     }
 
-    // TODO: When you get to part 4, implement the needed code to support
-    //       iteration and equals.
 }
-    // TODO: Remove all comments that say TODO when you're done.
+
