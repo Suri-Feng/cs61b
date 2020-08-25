@@ -1,7 +1,7 @@
 package es.datastructur.synthesizer;
 import java.util.Iterator;
 
-//TODO: Make sure to that this class and all of its methods are public
+//Done: Make sure to that this class and all of its methods are public
 
 public class ArrayRingBuffer<T> implements BoundedQueue<T> {
 
@@ -47,10 +47,7 @@ public class ArrayRingBuffer<T> implements BoundedQueue<T> {
         }
         rb[last] = x;
         fillCount += 1;
-        last += 1;
-        if (last == capacity()){
-            last = 0;
-        }
+        last = (last+1)%capacity();
     }
 
     /**
@@ -63,12 +60,8 @@ public class ArrayRingBuffer<T> implements BoundedQueue<T> {
             throw new RuntimeException("Ring buffer underflow");
         }
         T item = rb[first];
-        rb[first] = null;
         fillCount -= 1;
-        first += 1;
-        if (first == capacity()){
-            first = 0;
-        }
+        first = (first + 1) % capacity();
         return item;
     }
 

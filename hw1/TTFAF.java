@@ -1,3 +1,4 @@
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,6 +11,7 @@ import java.util.zip.GZIPInputStream;
  *
  * @author Eli Lipsitz
  */
+
 public class TTFAF {
     public static void main(String[] args) {
         try {
