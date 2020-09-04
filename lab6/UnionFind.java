@@ -1,6 +1,6 @@
 public class UnionFind {
 
-    private int[] parent;
+    public int[] parent;
 
     /* Creates a UnionFind data structure holding n vertices. Initially, all
        vertices are in disjoint sets. */
@@ -48,14 +48,17 @@ public class UnionFind {
         int size2 = sizeOf(v2);
         int root1 = find(v1);
         int root2 = find(v2);
-        if (size1 <= size2) {
-            parent[root1] = root2;
-            parent[root2] -= size1;
-        } else {
-            parent[root2] = root1;
-            parent[root1] -= size2;
+        if (root1 != root2 || (root1 == -1 && root2 == -1)) {
+            if (size1 <= size2) {
+                parent[root1] = root2;
+                parent[root2] -= size1;
+            } else {
+                parent[root2] = root1;
+                parent[root1] -= size2;
+            }
         }
-    }
+        }
+
 
     /* Returns the root of the set V belongs to. Path-compression is employed
        allowing for fast search-time. */
