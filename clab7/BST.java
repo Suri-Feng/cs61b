@@ -8,8 +8,7 @@ public class BST<Key extends Comparable<Key>> {
     /**
      * Initializes an empty BST.
      */
-    public BST() {
-    }
+
 
     /**
      * Returns the number of keys in this BST.
@@ -83,6 +82,7 @@ public class BST<Key extends Comparable<Key>> {
             this.size = size;
         }
     }
+
 
     /* Returns a tree with key deleted from the tree rooted at x. */
     private Node deleteTakingSuccessor(Node x, Key key) {
@@ -245,5 +245,15 @@ public class BST<Key extends Comparable<Key>> {
      */
     private boolean isEmpty() {
         return size() == 0;
+    }
+
+    public double averageDepth() {
+        int IPL = depth(root, 0);
+        return (double)IPL/size();
+    }
+
+    public int depth (Node x, int currentDepth) {
+        if (x == null) return 0;
+        return currentDepth + depth(x.left, currentDepth + 1) + depth(x.right, currentDepth + 1);
     }
 }

@@ -1,7 +1,15 @@
+
+
 /**
  * Created by hug.
  */
 public class ExperimentHelper {
+
+    public static void main (String[] args) {
+        System.out.println(optimalIPL(8));
+        System.out.println(optimalAverageDepth(8));
+    }
+
 
     /** Returns the internal path length for an optimum binary search tree of
      *  size N. Examples:
@@ -15,8 +23,20 @@ public class ExperimentHelper {
      *  N = 8, OIPL: 13
      */
     public static int optimalIPL(int N) {
-        return 0;
+        int depth = (int) Math.floor(Math.log(N)/Math.log(2));
+        int ans = 0;
+        double currentDepth;
+        for (int newN = N; N > 0; N --) {
+            ans += depth;
+            double depthChecker = Math.log(N)/Math.log(2);
+            if (depthChecker == (double)depth) {
+                depth -= 1;
+            }
+        }
+        return ans;
     }
+
+
 
     /** Returns the average depth for nodes in an optimal BST of
      *  size N.
@@ -27,6 +47,16 @@ public class ExperimentHelper {
      * @return
      */
     public static double optimalAverageDepth(int N) {
-        return 0;
+        return (double)optimalIPL(N)/N;
+    }
+
+    public static void insertNDelete(BST b) {
+        b.deleteTakingSuccessor(b.getRandomKey());
+        b.add(b.getRandomKey());
+    }
+
+    public static void insertNDelete2(BST b) {
+        b.deleteTakingRandom(b.getRandomKey());
+        b.add(b.getRandomKey());
     }
 }
